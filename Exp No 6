@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Timer Functions and Arrays</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            margin: 20px;
+        }
+
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        #time {
+            font-size: 30px;
+            color: green;
+            font-weight: bold;
+        }
+
+        #img {
+            width: 150px;
+            position: relative;
+            left: 0px;
+        }
+
+        #para1 {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Timer Functions and Arrays</h1>
+
+    <!-- Question 1: Digital Clock -->
+    <div class="box">
+        <h2>1. Digital Clock</h2>
+
+        <span id="time"></span>
+    </div>
+
+    <!-- Question 2: Dynamic Background -->
+    <div class="box">
+        <h2>2. Dynamic Background Color</h2>
+
+        <p>Background color changes automatically every 30 seconds.</p>
+    </div>
+
+    <!-- Question 3: Change Font Size -->
+    <div class="box">
+        <h2>3. Change Font Size</h2>
+
+        <p id="para1" onmouseover="incSize()" onmouseout="decSize()">
+            Move your mouse over me to increase the font size!
+        </p>
+    </div>
+
+    <!-- Question 4: Move Car -->
+    <div class="box">
+        <h2>4. Move Car Image</h2>
+
+        <img id="img" src="https://placehold.co/150x70?text=CAR" alt="Car">
+
+        <br><br>
+
+        <button onclick="moveRight()">Move</button>
+
+        <button onclick="stop()">Stop</button>
+    </div>
+
+    <!-- Question 5: Student Array -->
+    <div class="box">
+        <h2>5. Student Details Using Array of Objects</h2>
+
+        <div id="students"></div>
+    </div>
+
+
+    <script>
+
+        // Question 1: Digital Clock
+
+        function display() {
+
+            var d = new Date();
+
+            var hours = d.getHours();
+            var minutes = d.getMinutes();
+            var seconds = d.getSeconds();
+
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            if (seconds < 10) seconds = "0" + seconds;
+
+            document.getElementById("time").innerHTML =
+                hours + ":" + minutes + ":" + seconds;
+        }
+
+        display();
+
+        setInterval(display, 1000);
+
+
+        // Question 2: Dynamic Background Color
+
+        function setBackgroundColor() {
+
+            var red = Math.floor(Math.random() * 255);
+
+            var green = Math.floor(Math.random() * 255);
+
+            var blue = Math.floor(Math.random() * 255);
+
+            var color = "rgb(" + red + "," + green + "," + blue + ")";
+
+            document.body.style.backgroundColor = color;
+        }
+
+        setInterval(setBackgroundColor, 30000);
+
+
+        // Question 3: Change Font Size
+
+        function incSize() {
+
+            document.getElementById("para1").style.fontSize = "28px";
+        }
+
+        function decSize() {
+
+            document.getElementById("para1").style.fontSize = "18px";
+        }
+
+
+        // Question 4: Move Car Image
+
+        var imgObj;
+        var animate;
+
+        function init() {
+
+            imgObj = document.getElementById("img");
+
+            imgObj.style.position = "relative";
+
+            imgObj.style.left = "0px";
+        }
+
+        function moveRight() {
+
+            imgObj.style.left =
+                parseInt(imgObj.style.left) + 1 + "px";
+
+            animate = setTimeout(moveRight, 10);
+        }
+
+        function stop() {
+
+            clearTimeout(animate);
+        }
+
+        window.onload = init;
+
+
+        // Question 5: Student Array of Objects
+
+        var student = [
+
+            {
+                name: "John",
+                r_num: "UR13CS129",
+                dob: 1995
+            },
+
+            {
+                name: "Joseph",
+                r_num: "UR13CS456",
+                dob: 1998
+            },
+
+            {
+                name: "Rahul",
+                r_num: "UR24CS123",
+                dob: 2002
+            },
+
+            {
+                name: "Arun",
+                r_num: "UR24CS456",
+                dob: 2004
+            }
+
+        ];
+
+        var result = "";
+
+        for (var i = 0; i < student.length; i++) {
+
+            result += student[i].name +
+                "'s Register Number is " +
+                student[i].r_num + "<br>";
+
+            if (student[i].dob < 2000) {
+
+                result += "Born Before 2000<br><br>";
+
+            }
+            else {
+
+                result += "Born After 2000<br><br>";
+
+            }
+        }
+
+        document.getElementById("students").innerHTML = result;
+
+    </script>
+
+</body>
+</html>
