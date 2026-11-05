@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Working with AngularJS Directives</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            margin: 5px;
+            width: 250px;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        .result {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+
+    <h1>Working with AngularJS Directives</h1>
+
+    <!-- Question 1: Comment Box -->
+
+    <div class="box" ng-controller="CommentController">
+
+        <h2>1. Simple Comment Box</h2>
+
+        <h3>Post Your Comment</h3>
+
+        <textarea ng-model="txtcomment"
+                  placeholder="Enter your comment"></textarea>
+
+        <br>
+
+        <button ng-click="btn_add()">Post Comment</button>
+
+        <h3>Comments</h3>
+
+        <ul>
+            <li ng-repeat="comnt in comment">
+                {{comnt}}
+
+                <button ng-click="remItem($index)">Delete</button>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <!-- Question 2: Simple Calculator -->
+
+    <div class="box" ng-controller="CalculatorController">
+
+        <h2>2. Simple Calculator</h2>
+
+        <label>Enter First Number:</label>
+        <br>
+
+        <input type="number" ng-model="a">
+
+        <br>
+
+        <label>Enter Second Number:</label>
+        <br>
+
+        <input type="number" ng-model="b">
+
+        <br>
+
+        <label>Select Operator:</label>
+        <br>
+
+        <select ng-model="operator">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+        </select>
+
+        <h3 class="result">Result: {{result()}}</h3>
+
+    </div>
+
+
+    <!-- Question 3: To-Do List -->
+
+    <div class="box" ng-controller="TodoController">
+
+        <h2>3. Simple To-Do List</h2>
+
+        <input type="text" ng-model="title"
+               placeholder="Enter your task">
+
+        <button ng-click="add()">Add Task</button>
+
+        <h3>My Tasks</h3>
+
+        <ul>
+            <li ng-repeat="t in tasks">
+                {{t}}
+
+                <button ng-click="remove($index)">Delete</button>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script>
+
+        // Create AngularJS Application
+
+        var app = angular.module("myApp", []);
+
+
+        // Question 1: Comment Controller
+
+        app.controller("CommentController", function($scope) {
+
+            $scope.comment = [];
+
+            $scope.btn_add = function() {
+
+                if ($scope.txtcomment != "") {
+
+                    $scope.comment.push($scope.txtcomment);
+
+                    $scope.txtcomment = "";
+
+                }
+
+            };
+
+            $scope.remItem = function(index) {
+
+                $scope.comment.splice(index, 1);
+
+            };
+
+        });
+
+
+        // Question 2: Calculator Controller
+
+        app.controller("CalculatorController", function($scope) {
+
+            $scope.result = function() {
+
+                if ($scope.operator == "+") {
+                    return Number($scope.a) + Number($scope.b);
+                }
+
+                if ($scope.operator == "-") {
+                    return Number($scope.a) - Number($scope.b);
+                }
+
+                if ($scope.operator == "*") {
+                    return Number($scope.a) * Number($scope.b);
+                }
+
+                if ($scope.operator == "/") {
+
+                    if ($scope.b == 0) {
+                        return "Cannot divide by zero";
+                    }
+
+                    return Number($scope.a) / Number($scope.b);
+                }
+
+                return 0;
+
+            };
+
+        });
+
+
+        // Question 3: To-Do List Controller
+
+        app.controller("TodoController", function($scope) {
+
+            $scope.tasks = [];
+
+            $scope.add = function() {
+
+                if ($scope.title != "") {
+
+                    $scope.tasks.push($scope.title);
+
+                    $scope.title = "";
+
+                }
+
+            };
+
+            $scope.remove = function(index) {
+
+                $scope.tasks.splice(index, 1);
+
+            };
+
+        });
+
+    </script>
+
+</body>
+</html>
