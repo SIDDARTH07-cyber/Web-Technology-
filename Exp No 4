@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced CSS3 Webpage Design</title>
+
+    <style>
+
+        /* Body Section */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            margin: 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(to right, blue, purple);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 25px;
+            text-shadow: 3px 3px 5px black;
+        }
+
+        /* Rounded Corners */
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 15px 50px 30px 5px;
+            box-shadow: 5px 5px 10px gray;
+        }
+
+        /* Border Image */
+        .borderbox {
+            padding: 20px;
+            margin: 20px;
+            border: 15px solid transparent;
+            border-image: url("https://www.w3schools.com/css/border.png") 30 round;
+        }
+
+        /* Multiple Backgrounds */
+        .background {
+            background-image: url("https://www.w3schools.com/css/img_flwr.gif"),
+                              url("https://www.w3schools.com/css/paper.gif");
+            background-position: right bottom, left top;
+            background-repeat: no-repeat, repeat;
+            padding: 40px;
+            height: 150px;
+        }
+
+        /* Background Size */
+        .bgsize {
+            background-image: url("https://www.w3schools.com/css/img_flwr.gif");
+            background-size: 100px 80px;
+            background-repeat: no-repeat;
+            background-color: white;
+            height: 120px;
+            padding: 20px;
+        }
+
+        /* Pseudo Classes */
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input:focus {
+            border: 3px solid red;
+            background-color: lightgreen;
+        }
+
+        input:required {
+            border: 2px solid blue;
+        }
+
+        input[type="email"]:invalid {
+            color: red;
+        }
+
+        input[type="email"]:valid {
+            color: blue;
+        }
+
+        /* Hover Effect */
+        a:hover {
+            color: red;
+            background-color: yellow;
+        }
+
+        /* Table Section */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: lightyellow;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+
+        tr:hover {
+            background-color: orange;
+        }
+
+        /* Adjacent Sibling Selector */
+        .itemImg {
+            opacity: 0.2;
+            width: 100px;
+        }
+
+        .itemName:hover + .itemImg {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, purple, blue);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Advanced CSS3 Webpage Design</h1>
+        <p>Demonstration of Advanced CSS3 Properties</p>
+    </header>
+
+    <!-- Rounded Corners Section -->
+    <div class="box">
+        <h2>Rounded Corners and Shadows</h2>
+        <p>This section demonstrates border-radius and box-shadow properties.</p>
+    </div>
+
+    <!-- Border Image Section -->
+    <div class="borderbox">
+        <h2>Border Image</h2>
+        <p>This section demonstrates the CSS border-image property.</p>
+    </div>
+
+    <!-- Multiple Background Section -->
+    <div class="background">
+        <h2>Multiple Background Images</h2>
+        <p>CSS allows multiple background images in one element.</p>
+    </div>
+
+    <br>
+
+    <!-- Background Size Section -->
+    <div class="bgsize">
+        <h2>Background Size</h2>
+        <p>This section demonstrates background-size property.</p>
+    </div>
+
+    <!-- Pseudo Classes Section -->
+    <div class="box">
+        <h2>Form Using Pseudo Classes</h2>
+
+        <form>
+            <label>Name:</label>
+            <input type="text" placeholder="Enter Name" required>
+            <br>
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter Email" required>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Table Section -->
+    <div class="box">
+        <h2>Table with Hover Effects</h2>
+
+        <table>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Category</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>Mobile</td>
+                <td>Electronics</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Laptop</td>
+                <td>Electronics</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Book</td>
+                <td>Education</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Watch</td>
+                <td>Accessories</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Adjacent Sibling Selector Section -->
+    <div class="box">
+        <h2>Image Hover Effect</h2>
+
+        <table>
+            <tr>
+                <td class="itemName">Mobile</td>
+                <td>
+                    <img class="itemImg"
+                    src="https://placehold.co/100x100?text=Mobile"
+                    alt="Mobile">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="itemName">Laptop</td>
+                <td>
+                    <img class="itemImg"
+                    src="https://placehold.co/100x100?text=Laptop"
+                    alt="Laptop">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Link Section -->
+    <div class="box">
+        <h2>Useful Website</h2>
+        <a href="https://www.w3schools.com/css/" target="_blank">
+            Learn CSS3
+        </a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <h3>Created by P. Vishnu Siddarth</h3>
+        <p>Advanced CSS3 Webpage Design</p>
+    </footer>
+
+</body>
+</html>
