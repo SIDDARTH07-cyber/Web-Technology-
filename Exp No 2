@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My HTML5 Showcase Page</title>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>My HTML5 Showcase Page</h1>
+        <p>
+            Welcome to my HTML5 showcase webpage.
+            This page demonstrates different HTML5 elements and their uses.
+            It includes images, tables, forms, audio, video and embedded webpages.
+            The purpose of this page is to understand basic HTML5 features.
+        </p>
+    </header>
+
+    <hr>
+
+    <!-- Image Section -->
+    <section>
+        <h2>Image Section</h2>
+        <img src="https://placehold.co/400x200" alt="Sample Image">
+    </section>
+
+    <hr>
+
+    <!-- Hyperlink Section -->
+    <section>
+        <h2>Useful Website</h2>
+        <a href="https://www.google.com" target="_blank">Visit Google</a>
+    </section>
+
+    <hr>
+
+    <!-- Table Section -->
+    <section>
+        <h2>HTML Elements Table</h2>
+        <table border="1">
+            <tr>
+                <th>Element</th>
+                <th>Category</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Heading</td>
+                <td>Text</td>
+                <td>Displays titles</td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td>Media</td>
+                <td>Displays pictures</td>
+            </tr>
+            <tr>
+                <td>Table</td>
+                <td>Structure</td>
+                <td>Displays data in rows and columns</td>
+            </tr>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- Form Section -->
+    <section>
+        <h2>Registration Form</h2>
+
+        <form>
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob"><br><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+
+                <label for="resume">Upload File:</label>
+                <input type="file" id="resume" name="resume"><br><br>
+
+                <label for="course">Select Course:</label>
+                <select id="course" name="course">
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>JavaScript</option>
+                </select><br><br>
+
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label><br><br>
+
+                <input type="checkbox" id="agree" name="agree">
+                <label for="agree">I agree to the terms and conditions</label><br><br>
+
+                <label for="skill">Skill Level:</label>
+                <input type="range" id="skill" name="skill"><br><br>
+
+                <label>Learning Progress:</label>
+                <progress value="70" max="100"></progress><br><br>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+
+            </fieldset>
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- Audio Section -->
+    <section>
+        <h2>Audio Section</h2>
+        <audio controls>
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>
+    </section>
+
+    <hr>
+
+    <!-- Video Section -->
+    <section>
+        <h2>Video Section</h2>
+        <video width="400" height="250" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+    </section>
+
+    <hr>
+
+    <!-- Media Link Section -->
+    <section>
+        <h2>Media File Link</h2>
+        <a href="https://www.w3schools.com/html/horse.mp3" target="_blank">
+            Open Audio File
+        </a>
+    </section>
+
+    <hr>
+
+    <!-- Embedded Webpage Section -->
+    <section>
+        <h2>Embedded Webpage</h2>
+        <iframe src="https://www.wikipedia.org" width="500" height="300" title="Wikipedia">
+        </iframe>
+    </section>
+
+    <hr>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Created by P. Vishnu Siddarth</p>
+        <p>HTML5 Showcase Project</p>
+ 
+</footer>
+
+</body>
+</html>
