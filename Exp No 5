@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Elements and Events</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            margin: 20px;
+        }
+
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        input, button, select {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript DOM Elements and Events</h1>
+
+    <!-- Question 1: Shortest and Longest Word -->
+    <div class="box">
+        <h2>1. Shortest and Longest Word</h2>
+
+        <input type="text" id="sentence" placeholder="Enter a sentence">
+
+        <button onclick="findWords()">Find Words</button>
+
+        <p id="wordResult"></p>
+    </div>
+
+    <!-- Question 2: BMI Calculator -->
+    <div class="box">
+        <h2>2. BMI Calculator</h2>
+
+        Weight (kg):
+        <input type="number" id="weight"><br>
+
+        Height (meters):
+        <input type="number" id="height" step="any"><br>
+
+        <button onclick="calculate()">Get BMI</button>
+
+        <p>Your BMI is <span id="score"></span></p>
+
+        <p>Your Body Type is <span id="type"></span></p>
+    </div>
+
+    <!-- Question 3: Fruit Farm -->
+    <div class="box">
+        <h2>3. Fruit Farm</h2>
+
+        Rows:
+        <input type="number" id="rows"><br>
+
+        Columns:
+        <input type="number" id="columns"><br>
+
+        <button onclick="grow()">Plant Garden</button>
+
+        <div id="garden"></div>
+    </div>
+
+    <!-- Question 4: Currency Converter -->
+    <div class="box">
+        <h2>4. Currency Converter</h2>
+
+        Convert:
+        <input type="number" id="data">
+
+        <select id="from">
+            <option value="INR">Indian Rupee</option>
+            <option value="USD">US Dollar</option>
+        </select>
+
+        To:
+
+        <select id="to">
+            <option value="USD">US Dollar</option>
+            <option value="INR">Indian Rupee</option>
+        </select>
+
+        <button onclick="convert()">Calculate</button>
+
+        <p>Answer: <span id="answer"></span></p>
+    </div>
+
+    <!-- Question 5: Coin Flip -->
+    <div class="box">
+        <h2>5. Coin Flip</h2>
+
+        <img src="https://placehold.co/100x100?text=Coin" id="coin" alt="Coin">
+
+        <br>
+
+        <button id="flip">Flip!</button>
+
+        <p>Heads Total: <span id="num_heads">0</span></p>
+
+        <p>Tails Total: <span id="num_tails">0</span></p>
+    </div>
+
+    <!-- Question 6: Birthday Cake Order Form -->
+    <div class="box">
+        <h2>6. Birthday Cake Order Form</h2>
+
+        Number of 1/2kg Cakes:
+        <input type="number" id="small" value="0"><br>
+
+        Number of 1kg Cakes:
+        <input type="number" id="medium" value="0"><br>
+
+        Number of 2kg Cakes:
+        <input type="number" id="large" value="0"><br>
+
+        Tip:
+
+        <label>
+            <input type="radio" value="10" name="tip">
+            10%
+        </label>
+
+        <label>
+            <input type="radio" value="15" name="tip" checked>
+            15%
+        </label>
+
+        <label>
+            <input type="radio" value="20" name="tip">
+            20%
+        </label>
+
+        <br>
+
+        <button id="submit">Calculate Order</button>
+
+        <p>Cost of Order: Rs. <span id="price">0</span></p>
+    </div>
+
+    <!-- DOM Event Section -->
+    <div class="box">
+        <h2>DOM Event Example</h2>
+
+        <button onclick="changeText()">Click Me</button>
+
+        <p id="demo">Welcome to JavaScript DOM</p>
+    </div>
+
+
+    <script>
+
+        // Question 1: Find Shortest and Longest Word
+
+        function findWords() {
+
+            var str = document.getElementById("sentence").value;
+
+            var words = str.trim().split(/\s+/);
+
+            var shortest = words[0];
+            var longest = words[0];
+
+            for (var i = 0; i < words.length; i++) {
+
+                if (words[i].length < shortest.length) {
+                    shortest = words[i];
+                }
+
+                if (words[i].length > longest.length) {
+                    longest = words[i];
+                }
+            }
+
+            document.getElementById("wordResult").innerHTML =
+                "Shortest: " + shortest + "<br>Longest: " + longest;
+        }
+
+
+        // Question 2: BMI Calculator
+
+        function calculate() {
+
+            var weight = parseFloat(document.getElementById("weight").value);
+
+            var height = parseFloat(document.getElementById("height").value);
+
+            var bmi = weight / (height * height);
+
+            document.getElementById("score").innerHTML = bmi.toFixed(2);
+
+            var type;
+
+            if (bmi < 18) {
+                type = "Underweight";
+            }
+            else if (bmi <= 25) {
+                type = "Normal";
+            }
+            else if (bmi <= 30) {
+                type = "Overweight";
+            }
+            else {
+                type = "Obese";
+            }
+
+            document.getElementById("type").innerHTML = type;
+        }
+
+
+        // Question 3: Fruit Farm
+
+        function grow() {
+
+            var rows = parseInt(document.getElementById("rows").value);
+
+            var columns = parseInt(document.getElementById("columns").value);
+
+            var fruits = [
+                "https://placehold.co/100x100?text=Apple",
+                "https://placehold.co/100x100?text=Orange"
+            ];
+
+            var garden = document.getElementById("garden");
+
+            garden.innerHTML = "";
+
+            for (var i = 0; i < rows; i++) {
+
+                for (var j = 0; j < columns; j++) {
+
+                    var number = Math.floor(Math.random() * 2);
+
+                    garden.innerHTML +=
+                        "<img src='" + fruits[number] + "' alt='Fruit'>";
+                }
+
+                garden.innerHTML += "<br>";
+            }
+        }
+
+
+        // Question 4: Currency Converter
+
+        function convert() {
+
+            var data = parseFloat(document.getElementById("data").value);
+
+            var from = document.getElementById("from").value;
+
+            var to = document.getElementById("to").value;
+
+            var result;
+
+            if (from == "INR" && to == "USD") {
+                result = data * 0.015;
+            }
+            else if (from == "USD" && to == "INR") {
+                result = data * 67.12;
+            }
+            else {
+                result = data;
+            }
+
+            document.getElementById("answer").innerHTML =
+                result.toFixed(2);
+        }
+
+
+        // Question 5: Coin Flip
+
+        var heads = 0;
+
+        var tails = 0;
+
+        document.getElementById("flip").addEventListener("click", flipFunction);
+
+        function flipFunction() {
+
+            var number = Math.floor(Math.random() * 2);
+
+            if (number == 0) {
+
+                heads++;
+
+                document.getElementById("coin").src =
+                    "https://placehold.co/100x100?text=Heads";
+            }
+            else {
+
+                tails++;
+
+                document.getElementById("coin").src =
+                    "https://placehold.co/100x100?text=Tails";
+            }
+
+            document.getElementById("num_heads").innerHTML = heads;
+
+            document.getElementById("num_tails").innerHTML = tails;
+        }
+
+
+        // Question 6: Birthday Cake Order Form
+
+        document.getElementById("submit").addEventListener("click", orderFunction);
+
+        function orderFunction() {
+
+            var small = parseInt(document.getElementById("small").value) || 0;
+
+            var medium = parseInt(document.getElementById("medium").value) || 0;
+
+            var large = parseInt(document.getElementById("large").value) || 0;
+
+            var total = (small * 100) + (medium * 200) + (large * 400);
+
+            var tax = total * 0.09;
+
+            var amount = total + tax;
+
+            var tip = parseInt(document.querySelector('input[name="tip"]:checked').value);
+
+            var finalPrice = amount + (amount * tip / 100);
+
+            document.getElementById("price").innerHTML =
+                finalPrice.toFixed(2);
+        }
+
+
+        // DOM Event Example
+
+        function changeText() {
+
+            document.getElementById("demo").innerHTML =
+                "Hello! Welcome to Karunya University";
+        }
+
+    </script>
+
+</body>
+</html>
