@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Webpage Using HTML5 and CSS3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        /* Body Section */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+            font-family: Georgia, serif;
+        }
+
+        /* Header Section */
+        header {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        /* Navigation Section */
+        nav {
+            background-color: black;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: inline-block;
+        }
+
+        nav a:link {
+            color: white;
+        }
+
+        nav a:visited {
+            color: cyan;
+        }
+
+        nav a:hover {
+            background-color: green;
+        }
+
+        nav a:active {
+            background-color: red;
+        }
+
+        /* Main Section */
+        main {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        /* Multicolumn Layout */
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .column {
+            background-color: lightyellow;
+            padding: 20px;
+            width: 50%;
+            border: 2px solid black;
+        }
+
+        /* Text Formatting */
+        h2 {
+            color: darkblue;
+            text-align: center;
+            text-decoration: underline;
+            font-size: 25px;
+        }
+
+        p {
+            color: green;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 15px;
+        }
+
+        /* List Section */
+        ul {
+            list-style-type: circle;
+            font-size: 18px;
+        }
+
+        /* Image Section */
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .column {
+                width: auto;
+            }
+
+            nav a {
+                display: block;
+            }
+
+            header {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>My Responsive Webpage</h1>
+        <p>Using HTML5 and CSS3</p>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main Section -->
+    <main>
+
+        <h2>Welcome to My Webpage</h2>
+
+        <p>
+            HTML5 is used to create the structure of a webpage.
+            CSS3 is used to design and style the webpage.
+            This webpage demonstrates responsive design,
+            margins, padding, fonts, colors and layouts.
+        </p>
+
+        <!-- Multicolumn Section -->
+        <div class="container">
+
+            <div class="column">
+                <h2>HTML5</h2>
+
+                <img src="https://placehold.co/400x200" alt="HTML5 Image">
+
+                <p>
+                    HTML5 is a markup language used to create
+                    the structure of web pages.
+                </p>
+
+                <ul>
+                    <li>Headings</li>
+                    <li>Paragraphs</li>
+                    <li>Images</li>
+                    <li>Links</li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h2>CSS3</h2>
+
+                <img src="https://placehold.co/400x200" alt="CSS3 Image">
+
+                <p>
+                    CSS3 is used to style web pages by adding
+                    colors, fonts, backgrounds and layouts.
+                </p>
+
+                <ul>
+                    <li>Colors</li>
+                    <li>Margins</li>
+                    <li>Padding</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Link Section -->
+        <h2>Useful Website</h2>
+
+        <p>
+            Learn more about HTML and CSS:
+            <a href="https://www.w3schools.com" target="_blank">
+                Visit W3Schools
+            </a>
+        </p>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Created by P. Vishnu Siddarth</p>
+        <p>Responsive Webpage Using HTML5 and CSS3</p>
+    </footer>
+
+</body>
+</html>
