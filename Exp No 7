@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Working with jQuery</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        #car {
+            width: 250px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50px 50px 20px 20px;
+            position: relative;
+            margin: 40px auto;
+        }
+
+        .window {
+            width: 100px;
+            height: 35px;
+            background-color: lightblue;
+            position: absolute;
+            top: 10px;
+            left: 75px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .tyre {
+            width: 35px;
+            height: 35px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -15px;
+        }
+
+        #wheel1 {
+            left: 30px;
+        }
+
+        #wheel2 {
+            right: 30px;
+        }
+
+        .result {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Working with jQuery</h1>
+
+    <!-- Question 1: Budget Calculator -->
+
+    <div class="box">
+
+        <h2>1. Budget Calculator</h2>
+
+        <label>Enter Your Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <br><br>
+
+        <label>Room Rent (%):</label>
+        <input type="number" id="rent" value="30">
+
+        <br>
+
+        <label>Accessories (%):</label>
+        <input type="number" id="accessories" value="20">
+
+        <br>
+
+        <label>Emergency (%):</label>
+        <input type="number" id="emergency" value="20">
+
+        <br>
+
+        <label>Saving (%):</label>
+        <input type="number" id="saving" value="30">
+
+        <br><br>
+
+        <button id="evaluate">Evaluate My Money</button>
+
+        <h3>Budget Details</h3>
+
+        <p>Room Rent: <span id="rentResult" class="result"></span></p>
+
+        <p>Accessories: <span id="accessoriesResult" class="result"></span></p>
+
+        <p>Emergency: <span id="emergencyResult" class="result"></span></p>
+
+        <p>Saving: <span id="savingResult" class="result"></span></p>
+
+    </div>
+
+
+    <!-- Question 2: Cake Order Calculator -->
+
+    <div class="box">
+
+        <h2>2. Cake Order Calculator</h2>
+
+        <label>Select Cake Size:</label>
+
+        <select id="cake">
+            <option value="100">Half Kg - Rs.100</option>
+            <option value="200">1 Kg - Rs.200</option>
+            <option value="400">2 Kg - Rs.400</option>
+        </select>
+
+        <br><br>
+
+        <label>Select Tip:</label>
+
+        <select id="tip">
+            <option value="10">10%</option>
+            <option value="15">15%</option>
+            <option value="20">20%</option>
+        </select>
+
+        <br><br>
+
+        <button id="order">Calculate Order</button>
+
+        <h3>Bill Details</h3>
+
+        <p>Cake Price: Rs. <span id="cakePrice">0</span></p>
+
+        <p>Tax (9%): Rs. <span id="tax">0</span></p>
+
+        <p>Tip: Rs. <span id="tipAmount">0</span></p>
+
+        <h3 class="result">Total Amount: Rs. <span id="total">0</span></h3>
+
+    </div>
+
+
+    <!-- Question 3: Car Body Workshop -->
+
+    <div class="box">
+
+        <h2>3. Car Body Workshop</h2>
+
+        <div id="car">
+
+            <div class="window"></div>
+
+            <div class="tyre" id="wheel1"></div>
+
+            <div class="tyre" id="wheel2"></div>
+
+        </div>
+
+        <br>
+
+        <label>Change Car Color:</label>
+
+        <select id="carColor">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="black">Black</option>
+        </select>
+
+        <br><br>
+
+        <label>Glass Tint:</label>
+
+        <select id="glass">
+            <option value="lightblue">Light</option>
+            <option value="gray">Medium</option>
+            <option value="black">Dark</option>
+        </select>
+
+        <br><br>
+
+        <label>Tyre Size:</label>
+
+        <select id="tyreSize">
+            <option value="35">Small</option>
+            <option value="45">Medium</option>
+            <option value="55">Large</option>
+        </select>
+
+    </div>
+
+
+    <script>
+
+        // Question 1: Budget Calculator
+
+        $(document).ready(function() {
+
+            $("#evaluate").click(function() {
+
+                var amount = parseFloat($("#amount").val());
+
+                var rent = parseFloat($("#rent").val());
+                var accessories = parseFloat($("#accessories").val());
+                var emergency = parseFloat($("#emergency").val());
+                var saving = parseFloat($("#saving").val());
+
+                var total = rent + accessories + emergency + saving;
+
+                if (isNaN(amount) || amount <= 0 ||
+                    isNaN(rent) || isNaN(accessories) ||
+                    isNaN(emergency) || isNaN(saving)) {
+
+                    alert("Please enter valid values.");
+                    return;
+                }
+
+                if (rent < 0 || accessories < 0 ||
+                    emergency < 0 || saving < 0 ||
+                    rent > 100 || accessories > 100 ||
+                    emergency > 100 || saving > 100) {
+
+                    alert("Enter percentages between 0 and 100.");
+                    return;
+                }
+
+                if (total != 100) {
+
+                    alert("Total percentage must be 100%.");
+                    return;
+                }
+
+                $("#rentResult").text("Rs. " + (amount * rent / 100).toFixed(2));
+
+                $("#accessoriesResult").text("Rs. " + (amount * accessories / 100).toFixed(2));
+
+                $("#emergencyResult").text("Rs. " + (amount * emergency / 100).toFixed(2));
+
+                $("#savingResult").text("Rs. " + (amount * saving / 100).toFixed(2));
+
+            });
+
+
+            // Question 2: Cake Order Calculator
+
+            $("#order").click(function() {
+
+                var price = parseFloat($("#cake").val());
+
+                var tipPercent = parseFloat($("#tip").val());
+
+                var tax = price * 9 / 100;
+
+                var tip = price * tipPercent / 100;
+
+                var total = price + tax + tip;
+
+                $("#cakePrice").text(price.toFixed(2));
+
+                $("#tax").text(tax.toFixed(2));
+
+                $("#tipAmount").text(tip.toFixed(2));
+
+                $("#total").text(total.toFixed(2));
+
+            });
+
+
+            // Question 3: Car Body Workshop
+
+            $("#carColor").change(function() {
+
+                var color = $(this).val();
+
+                $("#car").css("background-color", color);
+
+            });
+
+
+            $("#glass").change(function() {
+
+                var color = $(this).val();
+
+                $(".window").css("background-color", color);
+
+            });
+
+
+            $("#tyreSize").change(function() {
+
+                var size = $(this).val();
+
+                $(".tyre").css({
+                    "width": size + "px",
+                    "height": size + "px"
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
