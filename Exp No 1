@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Personal Profile</title>
+</head>
+<body>
+
+    <h1>P. Vishnu Siddarth</h1>
+
+    <p>
+        Hello! My name is P. Vishnu Siddarth.
+        I am a third-year B.Tech Artificial Intelligence and Machine Learning student.
+        I am interested in programming, web development, and artificial intelligence.
+        My goal is to become a successful software developer.
+    </p>
+
+    <img src="https://placehold.co/300x200" alt="My Profile Image">
+
+    <h2>My Hobbies and Skills</h2>
+
+    <ul>
+        <li>Programming</li>
+        <li>Playing Badminton</li>
+        <li>Playing BGMI</li>
+        <li>Learning Artificial Intelligence</li>
+        <li>Web Development</li>
+    </ul>
+
+    <h2>My Favourite Website</h2>
+
+    <a href="https://www.google.com" target="_blank">
+        Visit Google
+    </a>
+
+</body>
+</html>
